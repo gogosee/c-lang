@@ -1,7 +1,7 @@
 
 cc = gcc  
 
-target := binary_search binary_search2 insertSort
+target := binary_search binary_search2 insertSort selectSort
 all: $(target)  
 .PHONY : target
 .PHONY : all
@@ -14,6 +14,9 @@ binary_search2: binary_search2.o
 
 insertSort: insertSort.o
 	cc -o insertSort insertSort.o
+
+selectSort: selectSort.o
+	cc -o selectSort selectSort.o
 
 clean:  
 	rm -f *.o   
