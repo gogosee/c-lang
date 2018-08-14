@@ -1,8 +1,8 @@
 
-cc = gcc  
+cc = gcc
 
-target := binary_search binary_search2 insertSort selectSort
-all: $(target)  
+target := binary_search binary_search2 insertSort selectSort bubbleSort
+all: $(target)
 .PHONY : target
 .PHONY : all
 
@@ -18,8 +18,11 @@ insertSort: insertSort.o
 selectSort: selectSort.o
 	cc -o selectSort selectSort.o
 
+bubbleSort: bubbleSort.o
+	cc -o bubbleSort bubbleSort.o
+
 clean:  
-	rm -f *.o   
+	rm -f *.o
 	rm -rf $(target)  
 
 .PHONY: clean
