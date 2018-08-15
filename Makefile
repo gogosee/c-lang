@@ -1,7 +1,7 @@
 
 cc = gcc
 
-target := binary_search binary_search2 insertSort selectSort bubbleSort shellSort
+target := binary_search binary_search2 insertSort selectSort bubbleSort shellSort quickSort
 all: $(target)
 .PHONY : target
 .PHONY : all
@@ -23,6 +23,9 @@ bubbleSort: bubbleSort.o
 
 shellSort: shellSort.o
 	cc -o shellSort shellSort.o
+
+quickSort: quickSort.o
+	cc -o quickSort quickSort.o
 
 clean:  
 	rm -f *.o
