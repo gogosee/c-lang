@@ -3,4 +3,6 @@ binary_search2
 bubbleSort
 insertSort
 selectSort
+quickSort
+shellSort
 *.o
