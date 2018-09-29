@@ -6,3 +6,4 @@ selectSort
 quickSort
 shellSort
 *.o
+a.out

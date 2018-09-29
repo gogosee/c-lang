@@ -1,26 +1,51 @@
 #include <stdio.h>
-#include <string.h>
 
-int binary_search(int array[], int count, int value)
+int binary_search(const int array[], int start, int end, int value)
 {
-	int low = 0;
-	int heigh = count -1;
-	int mid;
+		if (start > end)
+		{
+				return -1;
+		}
 
-	while (low <= heigh)
+		int mid = start + (end - start) / 2;
+		if (array[mid] == value)
+		{
+				return mid;
+		}
+		else if (array[mid] > value)
+		{
+				end = mid - 1;
+				binary_search(array, start, end, value);
+		}
+		else 
+		{
+				start = mid + 1;
+				binary_search(array, start, end, value);
+		}
+}
+
+int bin_search(const int array[], int start, int end, int value)
+{
+	if (start > end)
 	{
-		mid = (low + heigh) / 2;
-		if (value == array[mid])
+		return -1;	
+	}
+
+	int mid;
+	while (start <= end)
+	{
+		mid = start + (end - start) / 2;
+		if (array[mid] == value)
 		{
 			return mid;	
 		}
-		else if (value < array[mid])
+		else if (array[mid] > value)
 		{
-			heigh = mid - 1;	
+			end = mid - 1;			
 		}
-		else
+		else if (array[mid] < value)
 		{
-			low = mid + 1;	
+			start = mid + 1;	
 		}
 	}
 
@@ -28,14 +53,16 @@ int binary_search(int array[], int count, int value)
 }
 
 
+
+
 int main()
 {
-	int array[5] = {1, 2, 3, 4, 5};
-	int target;
+	int array[] = {1, 2, 3, 4, 5, 6, 10};
+	int res = binary_search(array, 0, 6, 6);
+	printf("%d\n", res);
 
-	scanf("%d", &target);
-	int index = binary_search(array, 5, target);
-	printf("%d\n", index);	
+	res = bin_search(array, 0, 6, 6);
+	printf("%d\n", res);
 
 	return 0;
 }
